@@ -1,0 +1,27 @@
+{
+  "name": "cnode-react-imvc",
+  "version": "1.0.0",
+  "description": "a cnode from react-imvc",
+  "main": "imvc.config.js",
+  "scripts": {
+    "start": "react-imvc start --config ./imvc.config.js",
+    "build": "react-imvc build --config ./imvc.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laoxiehhh/cnode-react-imvc.git"
+  },
+  "keywords": [
+    "react-imvc"
+  ],
+  "author": "xiexuandong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laoxiehhh/cnode-react-imvc/issues"
+  },
+  "homepage": "https://github.com/laoxiehhh/cnode-react-imvc#readme",
+  "dependencies": {
+    "react-imvc": "^1.5.1",
+    "react-lite": "^0.15.39"
+  }
+}
