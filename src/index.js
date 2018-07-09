@@ -6,6 +6,10 @@ export default [
     controller: require('./page/home/Controller')
   },
   {
+    path: '/login',
+    controller: require('./page/login/Controller')
+  },
+  {
     path: '*',
     controller: require('./page/home/Controller')
   }

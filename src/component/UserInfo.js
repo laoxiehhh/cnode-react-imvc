@@ -27,7 +27,7 @@ function UserInfo({ location, userInfo, user, onLogout }) {
     </div>
   );
 }
-
+// location.raw = location.pathname + location.search
 function Login(props) {
   if (!props.if) {
     return null;

@@ -125,4 +125,30 @@ export default class extends Controller {
     let { CLOSE_MENU } = this.store.actions;
     CLOSE_MENU();
   };
+  handleLogout = () => {
+    this.removeCookie('accesstoken')
+    window.location.reload()
+  }
+  // 隐藏提示信息
+  hideAlert = () => {
+    let { UPDATE_ALERT_TEXT } = this.store.actions;
+    UPDATE_ALERT_TEXT("");
+  };
+
+  // 显示提示信息
+  showAlert = text => {
+    let { UPDATE_ALERT_TEXT } = this.store.actions;
+    UPDATE_ALERT_TEXT(text);
+    setTimeout(this.hideAlert, 1000);
+  };
+
+  showLoading = content => {
+    let { UPDATE_LOADING_TEXT } = this.store.actions;
+    UPDATE_LOADING_TEXT(content);
+  };
+
+  hideLoading = () => {
+    let { UPDATE_LOADING_TEXT } = this.store.actions;
+    UPDATE_LOADING_TEXT("");
+  };
 }
