@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/laoxiehhh/cnode-react-imvc#readme",
   "dependencies": {
+    "markdown": "^0.5.0",
     "react-imvc": "^1.5.1",
     "react-lite": "^0.15.39"
   }

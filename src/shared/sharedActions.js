@@ -36,3 +36,14 @@ export const UPDATE_LOADING_TEXT = (state, loadingText) => {
     loadingText
   };
 };
+
+export const UPDATE_HTML_TITLE = (state, title) => {
+  let html = {
+    ...state.html,
+    title
+  };
+  return {
+    ...state,
+    html
+  };
+};

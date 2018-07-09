@@ -10,6 +10,10 @@ export default [
     controller: require('./page/login/Controller')
   },
   {
+    path: '/topic/:topicId',
+    controller: require('./page/detail/Controller')
+  },
+  {
     path: '*',
     controller: require('./page/home/Controller')
   }
