@@ -18,6 +18,10 @@ export default [
     controller: require('./page/user/Controller')
   },
   {
+    path: '/add',
+    controller: require('./page/add/Controller')
+  },
+  {
     path: '*',
     controller: require('./page/home/Controller')
   }
