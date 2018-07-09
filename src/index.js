@@ -14,6 +14,10 @@ export default [
     controller: require('./page/detail/Controller')
   },
   {
+    path: '/user/:loginname',
+    controller: require('./page/user/Controller')
+  },
+  {
     path: '*',
     controller: require('./page/home/Controller')
   }

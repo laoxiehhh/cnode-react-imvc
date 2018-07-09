@@ -959,7 +959,7 @@ body {
     color: #313131;
     overflow-x: hidden;
     line-height: 1;
-    background: url(../static/image/loading.gif) no-repeat center 250px;
+    /* background: url(../static/image/loading.gif) no-repeat center 250px; */
 }
 
 .mt5 {
@@ -2031,7 +2031,7 @@ body {
     color: #313131;
     overflow-x: hidden;
     line-height: 1;
-    background: url(../static/image/loading.gif) no-repeat center 250px;
+    /* background: url(../static/image/loading.gif) no-repeat center 250px; */
 }
 
 .mt5 {
@@ -2690,7 +2690,7 @@ body {
     color: #313131;
     overflow-x: hidden;
     line-height: 1;
-    background: url(../static/image/loading.gif) no-repeat center 250px;
+    /* background: url(../static/image/loading.gif) no-repeat center 250px; */
 }
 
 .mt5 {
