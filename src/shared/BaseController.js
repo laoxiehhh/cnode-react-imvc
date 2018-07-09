@@ -2,17 +2,17 @@
  * base controller class
  */
 
-import Controller from "react-imvc/controller"
-import querystring from "querystring"
-import sharedInitialState from "./sharedInitialState"
-import * as sharedActions from './sharedActions'
+import Controller from "react-imvc/controller";
+import querystring from "querystring";
+import sharedInitialState from "./sharedInitialState";
+import * as sharedActions from "./sharedActions";
 
 export default class extends Controller {
   SSR = true // 开启服务端渲染
   // controller.preload 对象用来在页面显示前，预加载 css, json 等数据
-  preloade = {
-    main: '/css/main.css'
-  }
+  preload = {
+    main: "/css/main.css"
+  };
   /**
    * controller.getInitialState 方法
    * 会在 createStore 之前执行，它应该返回一个对象，
@@ -20,10 +20,10 @@ export default class extends Controller {
    * 该方法的作用是，提供在运行时确定 initialState 的能力。
    * 比如从 cookie、storage、或者 server 里获取数据
    */
-  async getInitialState (initialState) {
-    let userInfo = await this.getUserInfo()
-    let isLogin = this.isLogin()
-    let showAddButton = isLogin
+  async getInitialState(initialState) {
+    let userInfo = await this.getUserInfo();
+    let isLogin = this.isLogin();
+    let showAddButton = isLogin;
 
     return {
       ...sharedInitialState,
@@ -31,7 +31,7 @@ export default class extends Controller {
       userInfo,
       isLogin,
       ...initialState
-    }
+    };
   }
   /**
    * controller.getFinalActions 方法在 createStore 之前执行，
@@ -39,11 +39,11 @@ export default class extends Controller {
    * 该方法的作用是，提供在运行时确定 actions 的能力，
    * 比如讲多个页面共享的 shared-actions 合并进来
    */
-  getFinalActions (actions) {
+  getFinalActions(actions) {
     return {
       ...actions,
       ...sharedActions
-    }
+    };
   }
   async getUserInfo () {
     // controller.context 是一个特殊对象，
@@ -53,30 +53,31 @@ export default class extends Controller {
     let { context } = this
     let userInfo = null
     try {
-      if (context.hasOwnProperty('userInfo')) {
-        userInfo = context.userInfo
+      if (context.hasOwnProperty("userInfo")) {
+        userInfo = context.userInfo;
       } else {
-        let accesstoken = this.cookie('accesstoken') // react-imvc封装了操作cookie的API
-        userInfo = await this.fetchUserInfo(accesstoken)
-        context.userInfo = userInfo
+        let accesstoken = this.cookie("accesstoken");
+        userInfo = await this.fetchUserInfo(accesstoken);
+        context.userInfo = userInfo;
       }
     } catch (_) {
-      context.userInfo = null
+      context.userInfo = null;
     }
     return userInfo
   }
   // 通过token来或去用户信息
-  async fetchUserInfo (accesstoken) {
+  async fetchUserInfo(accesstoken) {
     if (!accesstoken) {
-      return null
+      return null;
     }
-    let data = await this.post('/accesstoken', { accesstoken })
-    let { success, error_msg, ...userInfo } = data
-    return userInfo
+
+    let data = await this.post("/accesstoken", { accesstoken });
+    let { success, error_msg, ...userInfo } = data;
+    return userInfo;
   }
 
-  isLogin () {
-    return !!this.context.userInfo
+  isLogin() {
+    return !!this.context.userInfo;
   }
   // 封装 get 方法，处理 cnode 跨域要求
   get(api, params, options = {}) {
@@ -91,18 +92,18 @@ export default class extends Controller {
     return super.get(api, params, options);
   }
   // 封装 post 方法，处理 cnode 跨域要求
-  post (api, params, options = {}) {
+  post(api, params, options = {}) {
     options = {
       ...options,
-      credentials: 'omit',
-      method: 'POST',
+      credentials: "omit",
+      method: "POST",
       headers: {
         ...options.headers,
-        'Content-Type': "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       body: querystring.stringify(params)
-    }
-    return this.fetch(api, options)
+    };
+    return this.fetch(api, options);
   }
   // 统一抛错, get/post 方法底层调用的是 fetch 方法
   async fetch(url, options) {
@@ -116,12 +117,12 @@ export default class extends Controller {
   }
   // 打开菜单
   handleOpenMenu = () => {
-    let { OPEN_MENU } = this.store.actions
-    OPEN_MENU()
-  }
+    let { OPEN_MENU } = this.store.actions;
+    OPEN_MENU();
+  };
   // 关闭菜单
   handleCloseMenu = () => {
-    let { CLOSE_MENU } = this.store.actions
-    CLOSE_MENU()
-  }
+    let { CLOSE_MENU } = this.store.actions;
+    CLOSE_MENU();
+  };
 }

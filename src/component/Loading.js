@@ -1,7 +1,7 @@
 import React from "react"
 import connect from 'react-imvc/hoc/connect'
 
-const withDate = connect(({ state }) => {
+const withData = connect(({ state }) => {
   return {
     content: state.loadingText
   }

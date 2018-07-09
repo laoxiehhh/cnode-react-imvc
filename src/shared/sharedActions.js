@@ -8,7 +8,7 @@ export const OPEN_MENU = (state) => {
   }
   return {
     ...state,
-    showMenu: true
+    showMenu: true,
   }
 }
 
@@ -19,6 +19,6 @@ export const CLOSE_MENU = (state) => {
   }
   return {
     ...state,
-    showMenu: false
+    showMenu: false,
   }
 }

@@ -2,6 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import { Link } from "react-imvc/component"
 import connect from "react-imvc/hoc/connect"
+import UserInfo from "./UserInfo";
 
 const withData = connect(({ state, handlers }) => {
   return {
@@ -20,6 +21,7 @@ function Menu (props) {
 
   return (
     <section id="sideBar" className={className} onClick={props.onClose}>
+      <UserInfo />
       <ul className="list-ul">
         <MenuItemWithCheck
           className="icon-quanbu iconfont"
@@ -63,7 +65,8 @@ const withCurrentPath = connect(({ state }) => {
   // react-imvc 会把 controller.location 对象填充至 state.location 里
   // raw 为 pathname + search
   return {
-    current: state.location.raw
+    // state.location.raw
+    current: state.location
   }
 })
 
@@ -75,6 +78,6 @@ function MenuItem (props) {
     return <li {...rest} />
   }
   let { current, ...rest } = props
-  return <Link as="li" {...rest}>
+  return <Link as="li" {...rest} /> // 为了渲染插入的text
 }
 

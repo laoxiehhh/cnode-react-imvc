@@ -3,6 +3,10 @@
 export default [
   {
     path: '/home',
-    controller: require('.page/home/Controller')
+    controller: require('./page/home/Controller')
+  },
+  {
+    path: '*',
+    controller: require('./page/home/Controller')
   }
 ]
