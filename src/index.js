@@ -22,6 +22,14 @@ export default [
     controller: require('./page/add/Controller')
   },
   {
+    path: '/message',
+    controller: require('./page/message/Controller')
+  },
+  {
+    path: '/about',
+    controller: require('./page/about/Controller')
+  },
+  {
     path: '*',
     controller: require('./page/home/Controller')
   }
