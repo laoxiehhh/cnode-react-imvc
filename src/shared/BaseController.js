@@ -151,4 +151,29 @@ export default class extends Controller {
     let { UPDATE_LOADING_TEXT } = this.store.actions;
     UPDATE_LOADING_TEXT("");
   };
+
+  /**
+   * 数据重用后，将服务端的 userInfo 存入 context 里给其他页面使用
+   */
+  stateDidReuse(state) {
+    if (state.userInfo) {
+      this.context.userInfo = state.userInfo;
+    }
+  }
+  // 拓展字段：是否需要登录才可以访问
+  NeedLogin = false;
+  async shouldComponentCreate() {
+    // 如果需要登录却没登录，去登录页
+    if (this.NeedLogin && !this.isLogin()) {
+      this.redirect(`/login?redirect=${this.location.raw}`);
+      return false;
+    }
+  }
+  pageWillLeave() {
+    this.showLoading("加载中……");
+  }
+
+  pageDidBack() {
+    this.hideLoading();
+  }
 }

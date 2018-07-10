@@ -1,0 +1,11 @@
+{
+  "index": "index-d1ed8e.js",
+  "page/home/home": "page/home/home-e647ef.js",
+  "page/login/login": "page/login/login-281691.js",
+  "page/detail/detail": "page/detail/detail-6fe4c1.js",
+  "page/user/user": "page/user/user-db5f6f.js",
+  "page/add/add": "page/add/add-8438bf.js",
+  "page/message/message": "page/message/message-01527b.js",
+  "page/about/about": "page/about/about-10470d.js",
+  "vendor": "vendor-d1ed8e.js"
+}
